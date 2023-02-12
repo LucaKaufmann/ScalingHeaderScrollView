@@ -59,6 +59,9 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
     /// Allow force snap to closest position after lifting the finger, i.e. forbid to be left in unfinished state
     private var allowsHeaderSnapFlag: Bool = false
     
+    /// Allow header hit testing
+    private var allowsHeaderHitTestingFlag: Bool = true
+    
     /// Shows or hides the indicator for the scrollView
     private var showsIndicators: Bool = true
     
@@ -261,6 +264,13 @@ extension ScalingHeaderScrollView {
     public func allowsHeaderCollapse() -> ScalingHeaderScrollView {
         var scalingHeaderScrollView = self
         scalingHeaderScrollView.allowsHeaderCollapseFlag = true
+        return scalingHeaderScrollView
+    }
+    
+    /// When scrolling up - switch between actual header collapse and simply moving it up
+    public func disableHeaderHitTesting() -> ScalingHeaderScrollView {
+        var scalingHeaderScrollView = self
+        scalingHeaderScrollView.allowsHeaderHitTestingFlag = false
         return scalingHeaderScrollView
     }
 
