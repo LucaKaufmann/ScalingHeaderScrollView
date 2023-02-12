@@ -134,7 +134,7 @@ public struct ScalingHeaderScrollView<Header: View, Content: View>: View {
                         .frame(height: headerHeight)
                         .clipped()
                         .offset(y: getOffsetForHeader())
-                        .allowsHitTesting(true)
+                        .allowsHitTesting(allowsHeaderHitTestingFlag)
                         .scaleEffect(headerScaleOnPullDown)
                 }
                 .offset(y: getGeometryReaderVsScrollView(geometry))
